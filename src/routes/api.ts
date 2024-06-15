@@ -6,9 +6,9 @@ const router = express.Router();
 const API_BASE_URL = "https://jsonplaceholder.typicode.com";
 
 // Create (POST)
-router.post('/items', async (req, res) => {
+router.post('/users', async (req, res) => {
     try {
-        const response = await axios.post(`${API_BASE_URL}/items`, req.body);
+        const response = await axios.post(`${API_BASE_URL}/users`, req.body);
         res.status(response.status).json(response.data);
     }catch(error){
         res.status((error as any).response?.status || 500).json({ error: (error as any).message });
@@ -16,9 +16,9 @@ router.post('/items', async (req, res) => {
 })
 
 // Read (GET)
-router.get('/items/:id', async (req, res) => {
+router.get('/users/:id', async (req, res) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/items/${req.params.id}`);
+      const response = await axios.get(`${API_BASE_URL}/users/${req.params.id}`);
       res.status(response.status).json(response.data);
     } catch (error) {
       res.status((error as any).response?.status || 500).json({ error: (error as any).message });
@@ -26,9 +26,9 @@ router.get('/items/:id', async (req, res) => {
   });
   
   // Update (PUT)
-  router.put('/items/:id', async (req, res) => {
+  router.put('/users/:id', async (req, res) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/items/${req.params.id}`, req.body);
+      const response = await axios.put(`${API_BASE_URL}/users/${req.params.id}`, req.body);
       res.status(response.status).json(response.data);
     } catch (error) {
       res.status((error as any).response?.status || 500).json({ error: (error as any).message });
@@ -36,9 +36,9 @@ router.get('/items/:id', async (req, res) => {
   });
   
   // Delete (DELETE)
-  router.delete('/items/:id', async (req, res) => {
+  router.delete('/users/:id', async (req, res) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}/items/${req.params.id}`);
+      const response = await axios.delete(`${API_BASE_URL}/users/${req.params.id}`);
       res.status(response.status).json(response.data);
     } catch (error) {
       res.status((error as any).response?.status || 500).json({ error: (error as any).message });
